@@ -1,7 +1,7 @@
 from fastapi import FastAPI
-from external_services.media_wiki import get_wiki_page
-from external_services.chat_gpt import ChatGPT
-from components.stats import Statistics
+from app.external_services.media_wiki import get_wiki_page
+from app.external_services.chat_gpt import ChatGPT
+from app.components.stats import Statistics
 
 app = FastAPI()
 chat_gpt = ChatGPT()
