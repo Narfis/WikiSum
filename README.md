@@ -4,7 +4,7 @@ WikiSum is an API build with FastAPI to summarise and highlight key points of wi
 # Endpoints
 * /wiki_page/summary/{page_name} - A summerised text based on a Wikipedia article.
 * /wiki_page/key_points/{page_name} - Top five key points of a Wikipedia article.
-* /wiki_page/stats/{page_name} - Some additional information such as top 10 most used words in the article, and the arcitles mean word length.
+* /wiki_page/stats/{page_name} - Some additional fun information such as top 10 most used words in the article, and the arcitles mean word length.
 
 FastAPI documentation can be found at /docs.
 
