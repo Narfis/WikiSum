@@ -5,6 +5,8 @@ import os
 class ChatGPT:
     def __init__(self):
         load_dotenv()
+        self.cut_off = 8_000
+
 
         self.client = OpenAI(
             api_key=os.getenv("OPENAI_API_KEY"),
@@ -12,8 +14,8 @@ class ChatGPT:
 
     def summarise_wikipedia_post(self, wiki_content):
 
-        if len(wiki_content) > 70000:
-            wiki_content = wiki_content[:70000]
+        if len(wiki_content) > self.cut_off:
+            wiki_content = wiki_content[:self.cut_off]
 
         completion = self.client.chat.completions.create(
             model="gpt-3.5-turbo",
@@ -40,7 +42,7 @@ class ChatGPT:
             messages=[
                 {
                     "role": "system",
-                    "content": "You are a helpful assistant adding four to eigth key points from a wikipedia post in a bulletlist format."
+                    "content": "You are a helpful assistant adding the top 5 points from a wikipedia post into a bulletlist format."
                 },
                 {
                     "role": "user",
