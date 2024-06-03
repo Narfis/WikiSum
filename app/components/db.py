@@ -19,16 +19,16 @@ class DataBase:
             self.connection = None
             self.cursor = None
 
-    def insert_summary(self, page_name, summary):
+    def insert_summary(self, page_name: str, summary: str):
         self.cursor.execute("INSERT INTO summary_table (wiki_page_name, page_summary) VALUES (%s, %s)", (page_name, summary))
         self.connection.commit()
 
-    def get_summary(self, page_name):
+    def get_summary(self, page_name: str):
         self.cursor.execute("SELECT page_summary FROM summary_table WHERE wiki_page_name = %s", (page_name,))
         summary = self.cursor.fetchone()
         return summary[0] if summary else None
     
-    def get_key_points(self, page_name):
+    def get_key_points(self, page_name: str):
         self.cursor.execute("SELECT key_point_id FROM key_points_table WHERE wiki_page_name = %s", (page_name,))
         key_point_id = self.cursor.fetchone()
         if key_point_id:
@@ -37,7 +37,7 @@ class DataBase:
             return [point[0] for point in key_points]
         return None
     
-    def insert_key_points(self, page_name, key_points, id):
+    def insert_key_points(self, page_name: str, key_points: list[str], id: str):
         self.cursor.execute("INSERT INTO key_points_table (wiki_page_name, key_point_id) VALUES (%s, %s)", (page_name, str(id)))
         for key_point in key_points:
             self.cursor.execute("INSERT INTO key_points (id, point) VALUES (%s, %s)", (str(id), key_point))

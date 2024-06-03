@@ -3,14 +3,14 @@ import re
 import string
 
 class Statistics():
-    def get_most_used_words(self, wiki_content, n=10):
+    def get_most_used_words(self, wiki_content: str, number_of_words:int=10):
 
         text = re.sub(r'<[^>]+>', '', wiki_content)
         text = text.translate(str.maketrans('', '', string.punctuation)).lower()
         words = text.split()
 
         counter = Counter(words)
-        most_used_words = counter.most_common(10)
+        most_used_words = counter.most_common(number_of_words)
         return most_used_words
     
     def get_mean_word_length(self, wiki_content):

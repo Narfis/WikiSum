@@ -22,7 +22,7 @@ class WikiApi:
         
         return key, data
     
-    def get_last_changes(self, page_id, number_of_changes=5):
+    def get_last_changes(self, page_id:int, number_of_changes:int=5):
         params = {
             "action": "query",
             "format": "json",

@@ -12,13 +12,13 @@ class ChatAPI:
             api_key=os.getenv("OPENAI_API_KEY"),
         )
 
-    def get_content(self, gpt_data):
+    def get_content(self, gpt_data: dict):
         choice = dict(gpt_data).get("choices")[0]
         message = dict(choice).get("message")
         content = dict(message).get("content")
         return content
 
-    def summarise_wikipedia_post(self, wiki_content):
+    def summarise_wikipedia_post(self, wiki_content: str):
 
         if len(wiki_content) > self.cut_off:
             wiki_content = wiki_content[:self.cut_off]
@@ -38,7 +38,7 @@ class ChatAPI:
         )
         return completion
     
-    def key_points(self, wiki_content):
+    def key_points(self, wiki_content: str):
         cut_off = 8_000
         if len(wiki_content) > cut_off:
             wiki_content = wiki_content[:cut_off]
