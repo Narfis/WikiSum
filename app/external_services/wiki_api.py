@@ -12,14 +12,15 @@ class WikiApi:
         }
         response = requests.get("https://en.wikipedia.org/w/api.php?", params=params).json()
         
+        print(response)
         key = list(response.get("query").get("pages").keys())[0]
         if key == "-1":
-            return ""
+            return None, ""
 
         data = response.get("query").get("pages").get(key).get("extract")
-        if str.__contains__(data, "\nNewPP"):
-            return ""
-
+        if "\nNewPP" in data:
+            return None, ""
+        
         return key, data
     
     def get_last_changes(self, page_id, number_of_changes=5):
