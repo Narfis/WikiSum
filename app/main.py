@@ -15,10 +15,10 @@ db = DataBase()
 #api: https://en.wikipedia.org/w/api.php
 @app.get("/wiki_page/summary/{page_name}", response_model=Summary)
 def page_summary(page_name: str):
-    
-    summary_check = db.get_summary(page_name)
-    if summary_check:
-        return {"wiki_summary": summary_check}
+    if db.connection:
+        summary_check = db.get_summary(page_name)
+        if summary_check:
+            return {"wiki_summary": summary_check}
     
     _, wiki_data = wiki.get_wiki_page(page_name)
 
@@ -27,16 +27,19 @@ def page_summary(page_name: str):
     
     summary = chat_api.summarise_wikipedia_post(wiki_data)
     summary_content = chat_api.get_content(summary)
-    db.insert_summary(page_name, summary_content)
+
+    if db.connection:
+        db.insert_summary(page_name, summary_content)
 
     return {"wiki_summary": summary_content}
 
 @app.get("/wiki_page/key_points/{page_name}", response_model=KeyPoints)
 def page_key_points(page_name: str):
 
-    key_points_check = db.get_key_points(page_name)
-    if key_points_check:
-        return {"wiki_key_points": key_points_check}
+    if db.connection:
+        key_points_check = db.get_key_points(page_name)
+        if key_points_check:
+            return {"wiki_key_points": key_points_check}
     
     _, wiki_data = wiki.get_wiki_page(page_name)
     if not wiki_data:
@@ -46,7 +49,9 @@ def page_key_points(page_name: str):
     key_points = chat_api.key_points(wiki_data)
     key_points_content = chat_api.get_content(key_points)
     key_point_list = key_points_content.split("\n")
-    db.insert_key_points(page_name, key_point_list, id)
+
+    if db.connection:
+        db.insert_key_points(page_name, key_point_list, id)
 
     return {"wiki_key_points": key_point_list}
     

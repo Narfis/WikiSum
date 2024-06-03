@@ -12,7 +12,6 @@ class WikiApi:
         }
         response = requests.get("https://en.wikipedia.org/w/api.php?", params=params).json()
         
-        print(response)
         key = list(response.get("query").get("pages").keys())[0]
         if key == "-1":
             return None, ""

@@ -5,14 +5,19 @@ from dotenv import load_dotenv
 class DataBase:
     def __init__(self):
         load_dotenv()
-        self.connection = psycopg2.connect(
-            user=os.getenv("DB_USER"),
-            password=os.getenv("DB_PASS"),
-            host=os.getenv("DB_HOST"),
-            port=os.getenv("DB_PORT"),
-            database=os.getenv("DB_NAME")
-        )
-        self.cursor = self.connection.cursor()
+        try:
+            self.connection = psycopg2.connect(
+                user=os.getenv("DB_USER"),
+                password=os.getenv("DB_PASS"),
+                host=os.getenv("DB_HOST"),
+                port=os.getenv("DB_PORT"),
+                database=os.getenv("DB_NAME")
+            )
+            self.cursor = self.connection.cursor()
+        except psycopg2.errors.OperationalError:
+            print("Unable to access database, continues without database connection.")
+            self.connection = None
+            self.cursor = None
 
     def insert_summary(self, page_name, summary):
         self.cursor.execute("INSERT INTO summary_table (wiki_page_name, page_summary) VALUES (%s, %s)", (page_name, summary))
