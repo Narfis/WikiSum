@@ -7,7 +7,7 @@ class Summary(BaseModel):
         "json_schema_extra": {
             "examples": [
                 {
-                    "wiki_summary": "**Sebastian**\n\n- **People and fictional characters**: Includes a list of persons and fictional characters with the name Sebastian, such as Saint Sebastian, Sebastian of Portugal, and Sebastian (French musician).\n  \n- **Arts and entertainment**:\n  - **Film and television**: Includes films like \"Sebastian\" from 1968, 1976's \"Sebastiane\", and \"Sebastian\" from 1995 and 2017.\n  - **Literature**: Includes novels like \"Sebastian\" by Anne Bishop and Lawrence Durrell.\n  - **Music**: Mentions the 2006 album \"Sebastian\" by Swedish pop/rock singer Sebastian Karlsson.\n\n- **Places**:\n  - **Australia**: Sebastian, Victoria.\n  - **United States**: Sebastian, Florida; Sebastian, Ohio; Sebastian, Texas; Sebastian County, Arkansas.\n\n- **See also**: Reference to related topics like Saint-Sébastien, San Sebastian, Sebastianism, and Sébastien."
+                    "wiki_summary": "Lorem Ipsum is a placeholder text commonly used in publishing and graphic design to demonstrate the visual form of a document without relying on meaningful content. It is a corrupted version of a text by Cicero, with words altered to make it nonsensical. Lorem Ipsum has been used since the 1960s and was popularized by Letraset transfer sheets. It was introduced to the digital world in the 1980s and has since been adopted by various word processors and web content managers.\n\nThe Lorem Ipsum text is derived from Cicero's \"De finibus bonorum et malorum\", and its discovery is attributed to a Latin scholar named Richard McClintock. The text's origin dates back to a 1914 edition of \"De finibus\" and was highlighted by McClintock in 1994. The Lorem Ipsum text is often used for placeholder content in design work.\n\nExample text: Lorem ipsum dolor sit amet, consectetur adipiscing elit... \n\nSource text: Lorem Ipsum is derived from Cicero's work. The Lorem Ipsum text has been used in typesetting for various design purposes."
                 }
             ]
         }
@@ -21,11 +21,11 @@ class KeyPoints(BaseModel):
             "examples": [
                 {
                     "wiki_key_points": [
-                    "- Sebastian (name), including a list of persons and fictional characters with the name",
-                    "- Saint Sebastian, a Christian saint martyred in the 3rd century",
-                    "- Sebastian of Portugal (1554–1578), the sixteenth king of Portugal and the Algarve",
-                    "- Infante Sebastian of Portugal and Spain (1811–1875), Infante of Portugal (1811) and Infante of Spain (1824)",
-                    "- Sebastián (sculptor) (born 1947), artist based in Mexico"
+                        "- Lorem ipsum is a placeholder text used in publishing and graphic design to demonstrate the visual form of a document.",
+                        "- It is a corrupted version of a text by Cicero, with words altered to make it nonsensical Latin.",
+                        "- Lorem ipsum has been used since the 1960s in typesetting and was popularized by Letraset transfer sheets.",
+                        "- It was introduced to the digital world in the mid-1980s by Aldus in PageMaker and has since been adopted by various word processors, web content managers, and CSS libraries.",
+                        "- The Lorem ipsum text is derived from Cicero's De finibus bonorum et malorum and its discovery is attributed to Richard McClintock."
                     ]
                 }
             ]
@@ -44,56 +44,56 @@ class Stats(BaseModel):
         "json_schema_extra": {
             "examples": [
                 {
-                    "wiki_stats": {
+                      "wiki_stats": {
                         "most_common_words": [
                         [
-                            "sebastian",
-                            "31"
+                            "the",
+                            "42"
+                        ],
+                        [
+                            "to",
+                            "28"
                         ],
                         [
                             "of",
-                            "15"
-                        ],
-                        [
-                            "the",
-                            "15"
-                        ],
-                        [
-                            "a",
-                            "11"
-                        ],
-                        [
-                            "film",
-                            "9"
+                            "28"
                         ],
                         [
                             "and",
-                            "8"
-                        ],
-                        [
-                            "name",
-                            "7"
-                        ],
-                        [
-                            "portugal",
-                            "5"
-                        ],
-                        [
-                            "by",
-                            "5"
+                            "24"
                         ],
                         [
                             "in",
-                            "4"
+                            "23"
+                        ],
+                        [
+                            "a",
+                            "19"
+                        ],
+                        [
+                            "ipsum",
+                            "17"
+                        ],
+                        [
+                            "lorem",
+                            "15"
+                        ],
+                        [
+                            "is",
+                            "14"
+                        ],
+                        [
+                            "et",
+                            "14"
                         ]
                         ],
-                        "mean_word_length": 5.722741433021807,
+                        "mean_word_length": 5.104838709677419,
                         "last_changes": [
-                            "2024-03-01 12:56:36",
-                            "2024-03-01 12:54:18",
-                            "2024-03-01 12:53:06",
-                            "2024-03-01 12:41:21",
-                            "2024-01-10 09:41:14"
+                        "2024-05-30 23:25:10",
+                        "2024-05-30 07:36:49",
+                        "2024-05-16 15:03:57",
+                        "2024-05-16 15:00:28",
+                        "2024-05-16 12:50:00"
                         ]
                     }
                 }
