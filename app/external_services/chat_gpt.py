@@ -31,8 +31,9 @@ class ChatGPT:
         return completion
     
     def key_points(self, wiki_content):
-        if len(wiki_content) > 70000:
-            wiki_content = wiki_content[:70000]
+        cut_off = 8_000
+        if len(wiki_content) > cut_off:
+            wiki_content = wiki_content[:cut_off]
 
         completion = self.client.chat.completions.create(
             model="gpt-3.5-turbo",
