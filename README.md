@@ -20,7 +20,7 @@ FastAPI documentation can be found at /docs.
   - DB_USER        * Optional
 * uvicorn app.main:app --host 0.0.0.0 --port $PORT
 
-DB environment variables are optional due to not being required in the API, just saves on API calls in case of redundant calls.
+DB environment variables are optional due to not being required in the API, just saves on OpenAI API calls in case of redundant calls.
 
 # Database schema
 <img width="694" alt="image" src="https://github.com/Narfis/WikiSum/assets/38036515/a071ac48-d4a2-408e-82e2-7369374cf68b">
