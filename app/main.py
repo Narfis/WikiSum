@@ -15,7 +15,8 @@ db = DataBase()
 #api: https://en.wikipedia.org/w/api.php
 @app.get("/wiki_page/summary/{page_name}", response_model=Summary)
 def page_summary(page_name: str):
-    if db.connection:
+    connection = db.connect()
+    if connection:
         summary_check = db.get_summary(page_name)
         if summary_check:
             return {"wiki_summary": summary_check}
@@ -28,15 +29,16 @@ def page_summary(page_name: str):
     summary = chat_api.summarise_wikipedia_post(wiki_data)
     summary_content = chat_api.get_content(summary)
 
-    if db.connection:
+    if connection:
         db.insert_summary(page_name, summary_content)
+        db.close()
 
     return {"wiki_summary": summary_content}
 
 @app.get("/wiki_page/key_points/{page_name}", response_model=KeyPoints)
 def page_key_points(page_name: str):
-
-    if db.connection:
+    connection = db.connect()
+    if connection:
         key_points_check = db.get_key_points(page_name)
         if key_points_check:
             return {"wiki_key_points": key_points_check}
@@ -50,8 +52,9 @@ def page_key_points(page_name: str):
     key_points_content = chat_api.get_content(key_points)
     key_point_list = key_points_content.split("\n")
 
-    if db.connection:
+    if connection:
         db.insert_key_points(page_name, key_point_list, id)
+        db.close()
 
     return {"wiki_key_points": key_point_list}
     

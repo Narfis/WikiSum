@@ -3,7 +3,7 @@ import os
 from dotenv import load_dotenv
 
 class DataBase:
-    def __init__(self):
+    def connect(self):
         load_dotenv()
         try:
             self.connection = psycopg2.connect(
@@ -14,10 +14,15 @@ class DataBase:
                 database=os.getenv("DB_NAME")
             )
             self.cursor = self.connection.cursor()
+            return True
         except psycopg2.errors.OperationalError:
             print("Unable to access database, continues without database connection.")
             self.connection = None
             self.cursor = None
+            return False
+    def close(self):
+        self.cursor.close()
+        self.connection.close()
 
     def insert_summary(self, page_name: str, summary: str):
         self.cursor.execute("INSERT INTO summary_table (wiki_page_name, page_summary) VALUES (%s, %s)", (page_name, summary))
