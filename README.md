@@ -26,4 +26,4 @@ DB environment variables are optional due to not being required in the API, just
 <img width="694" alt="image" src="https://github.com/Narfis/WikiSum/assets/38036515/a071ac48-d4a2-408e-82e2-7369374cf68b">
 
 # Website
-The API can be found at: https://wikisum.up.railway.app/docs 
+The API can be found at: https://wikisum.narfis.com/docs 
